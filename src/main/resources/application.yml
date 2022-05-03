@@ -1,0 +1,26 @@
+server:
+  port: 8070
+
+ibm:
+  mq:
+    connName: localhost(1414)
+    host: localhost
+    queueManager: QM1
+    channel: DEV.ADMIN.SVRCONN
+    user: admin
+    password: passw0rd
+    bankRequest: DEV.QUEUE.1
+    bankResponse: DEV.QUEUE.2
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    distribution:
+      percentiles-histogram:
+        "[http.server.requests]": true
